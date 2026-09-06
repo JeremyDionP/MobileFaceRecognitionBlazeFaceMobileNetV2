@@ -122,4 +122,4 @@ Full comparison against all baseline architectures is detailed in the accompanyi
 
 ## License
 
-> Add your chosen license here (e.g. MIT, Apache 2.0), or state that this is submitted coursework and not licensed for reuse.
+> This is a submitted coursework for Leeds Beckett University Dissertation Module.
