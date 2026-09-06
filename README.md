@@ -24,7 +24,7 @@ This repository contains the Python model training/evaluation pipeline and the F
 ├── feature_embedding.py             # Trains the MobileNetV2 embedding model
 ├── convertion.py                    # Converts trained Keras weights to TFLite
 ├── proposed_model_evaluation.py     # Runs desktop evaluation of the proposed pipeline
-├── android_app/                     # Flutter mobile application
+├── app_prototype/prototype/                     # Flutter mobile application
 │   └── assets/models/               # Destination for the .tflite model files
 └── README.md
 ```
@@ -42,16 +42,6 @@ This repository contains the Python model training/evaluation pipeline and the F
 - Flutter SDK (for building the Android app)
 - Android device or emulator for testing
 - A [Kaggle account](https://www.kaggle.com) (to download the datasets below)
-
-Install Python dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-> If a `requirements.txt` isn't included yet, add one listing at minimum: `tensorflow`, `opencv-python`, `mediapipe`, `numpy`.
-
----
 
 ## Setup and Usage
 
@@ -103,7 +93,7 @@ android_app/assets/models/
 ### 6. Run the app
 
 ```bash
-cd android_app
+cd app_prototype/prototype
 flutter pub get
 flutter run
 ```
@@ -123,18 +113,10 @@ python proposed_model_evaluation.py
 | Method | Accuracy | Precision | Recall | F1-Score | Inference Latency |
 |---|---|---|---|---|---|
 | BlazeFace + MobileNetV2 (Proposed) | 87.69% | 100% | 46.67% | 0.64 | 5.03 ms |
-| MTCNN + FaceNet | 98.97% | 100% | 95.56% | 0.98 | 143.27 ms |
-| MTCNN + ArcFace | 97.95% | 100% | 91.11% | 0.95 | 121.11 ms |
 
 Full comparison against all baseline architectures is detailed in the accompanying dissertation.
 
 ---
-
-## Limitations
-
-- No anti-spoofing (liveness detection) — cannot yet distinguish a genuine face from a printed photo
-- Evaluation set is relatively small (40 identities / 400 images)
-- The stricter matching threshold, calibrated for 0% false acceptance, results in a lower Recall — genuine users may occasionally need to rescan
 
 ---
 
